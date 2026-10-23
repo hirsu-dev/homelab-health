@@ -1,0 +1,12 @@
+{
+  "name": "homelab-health",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "check": "node --check lantern/web/app.js && node --test tests/*.test.js"
+  },
+  "devDependencies": {
+    "happy-dom": "21.0.4"
+  }
+}

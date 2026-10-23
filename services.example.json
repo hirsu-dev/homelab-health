@@ -1,0 +1,9 @@
+{
+  "interval": 60,
+  "retention_days": 7,
+  "allowed_hosts": ["127.0.0.1"],
+  "services": [
+    {"id":"local-web","label":"My local web app","kind":"http","url":"http://127.0.0.1:8140/","warn_ms":500},
+    {"id":"local-port","label":"My local port","kind":"tcp","host":"127.0.0.1","port":8140,"warn_ms":500}
+  ]
+}

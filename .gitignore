@@ -1,0 +1,10 @@
+node_modules/
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+data/
+services.json
+.env
+*.sqlite*
+*.log

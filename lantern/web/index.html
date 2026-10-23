@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#0d151a" />
+    <meta
+      name="description"
+      content="Lantern: a private homelab dashboard with service checks, incidents and honest coverage. Public edition uses synthetic data."
+    />
+    <title>Lantern / Homelab Health</title>
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to dashboard</a>
+    <aside>
+      <a class="brand" href="#main"
+        ><span aria-hidden="true">◈</span>LANTERN<small
+          >HOMELAB HEALTH</small
+        ></a
+      >
+      <p>SEE THE SIGNAL.<br />NOTICE THE GAPS.</p>
+      <nav>
+        <a href="https://hrushikbarani-hub.github.io/">Portfolio ↗</a
+        ><a href="https://github.com/hrushikbarani-hub/homelab-health"
+          >Source & local setup ↗</a
+        ><button id="export">Export this report ↓</button>
+      </nav>
+      <span class="side-note">A TOOL BY HIRSU<br />VERSION 0.1</span>
+    </aside>
+    <main id="main">
+      <header>
+        <div>
+          <p class="eyebrow">
+            SERVICE HEALTH / YOUR SMALL CORNER OF THE NETWORK
+          </p>
+          <h1>A clearer view<br />of <em>what's running.</em></h1>
+        </div>
+        <span class="mode" id="mode">CONNECTING…</span>
+      </header>
+      <div class="toolbar">
+        <label
+          >History window<select id="window">
+            <option value="1">1 hour</option>
+            <option value="6">6 hours</option>
+            <option value="24" selected>24 hours</option>
+            <option value="168">7 days</option>
+          </select></label
+        ><label id="scenario-label"
+          >Demo scenario<select id="scenario">
+            <option value="normal">Normal service</option>
+            <option value="incident">Active incident</option>
+            <option value="recovery">Recovery observed</option>
+            <option value="gap">Missing check coverage</option>
+          </select></label
+        ><button id="refresh">Refresh report ↻</button
+        ><label class="check"
+          ><input type="checkbox" id="auto" />Refresh every 30 seconds</label
+        >
+      </div>
+      <p id="message" role="status"></p>
+      <section
+        class="summary"
+        id="summary"
+        aria-label="Service summary"
+      ></section>
+      <section class="service-panel">
+        <div class="section-head">
+          <h2>Your services</h2>
+          <span id="updated"></span>
+        </div>
+        <div class="legend">
+          <span data-state="up">Reachable</span
+          ><span data-state="degraded">Slow</span
+          ><span data-state="down">Down</span
+          ><span data-state="unknown">Unknown / no sample</span>
+        </div>
+        <div id="services" class="services"></div>
+      </section>
+      <section
+        class="details"
+        id="details"
+        aria-label="Selected service details"
+        aria-live="polite"
+      ></section>
+      <details class="method">
+        <summary>What do these numbers mean?</summary>
+        <p>
+          Observed reachability counts checks that connected, including slow
+          checks. Coverage compares observed time buckets with scheduled
+          buckets. Missing checks are not counted as successful uptime. A stale
+          latest result becomes unknown after two check intervals.
+        </p>
+        <p>
+          Each history tile shows the worst observed state in that time bin; an
+          empty bin is unknown. Incident end times are observed sample times. A
+          coverage gap closes an incident as unobserved, never as a confirmed
+          recovery. The local API returns up to 20 recent incidents per service.
+        </p>
+        <p>
+          A TCP connection confirms that a port accepted a connection, not that
+          the application behind it is healthy. HTTP checks require a 2xx status
+          and do not follow redirects. No response bodies, endpoint addresses or
+          exception strings are included in this report.
+        </p>
+      </details>
+      <footer>
+        PUBLIC DEMO = SYNTHETIC DATA / LOCAL LIVE CHECKS REQUIRE EXPLICIT
+        CONFIGURATION
+      </footer>
+    </main>
+    <noscript
+      >Enable JavaScript to use the dashboard, or read the local setup
+      instructions on GitHub.</noscript
+    >
+  </body>
+</html>
