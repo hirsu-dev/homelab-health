@@ -5,7 +5,6 @@ from pathlib import Path
 from urllib.parse import urlsplit
 import httpx
 
-
 def load_config(path):
     data = json.loads(Path(path).read_text(encoding="utf-8"))
     interval = int(data.get("interval", 60))
@@ -56,7 +55,6 @@ def load_config(path):
             )
     return {"interval": interval, "retention_days": retention, "services": services}
 
-
 def check_service(service, clock=time.monotonic):
     started = clock()
     try:
@@ -80,5 +78,5 @@ def check_service(service, clock=time.monotonic):
             "latency": latency if ok else None,
         }
     except (httpx.HTTPError, OSError, ValueError):
-        # Do not store exception strings, response bodies, URLs or credentials.
+        
         return {"state": "down", "latency": None}
