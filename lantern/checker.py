@@ -78,5 +78,4 @@ def check_service(service, clock=time.monotonic):
             "latency": latency if ok else None,
         }
     except (httpx.HTTPError, OSError, ValueError):
-        
         return {"state": "down", "latency": None}
