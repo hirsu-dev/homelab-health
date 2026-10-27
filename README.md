@@ -55,7 +55,7 @@ python -m unittest discover -s tests -p "test_*.py" -v
 
 Node.js 22+ is used for frontend checks. To serve just the browser demo, run `python -m http.server 8144 --bind 127.0.0.1 --directory lantern/web` and open `http://127.0.0.1:8144/?demo=1`.
 
-The checks cover missing coverage, absent samples, incident gaps, configured-host validation, redacted failures, collection lifecycle and the dashboard's actual scenario/inspection controls. Visual browser QA was unavailable during the release; review the page on your intended devices.
+The checks cover missing coverage, absent samples, incident gaps, configured-host validation, redacted failures, collection lifecycle and the dashboard's actual scenario/inspection controls. The dashboard still needs visual review on intended devices.
 
 ## Files
 
