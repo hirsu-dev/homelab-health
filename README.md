@@ -1,6 +1,6 @@
 # Lantern: Homelab Health
 
-A small dashboard for explicit HTTP/TCP service checks, incident history and missing-data coverage. [Try the synthetic browser demo](https://hrushikbarani-hub.github.io/homelab-health/).
+A small dashboard for explicit HTTP/TCP service checks, incident history and missing-data coverage. [Try the synthetic browser demo](https://hirsu-dev.github.io/homelab-health/).
 
 The public demo contains fictional services and generated samples. It has no access to my actual home network or yours.
 
@@ -64,4 +64,4 @@ The checks cover missing coverage, absent samples, incident gaps, configured-hos
 - `lantern/server.py` owns the background collector, SQLite retention and local API.
 - `lantern/web` contains the browser UI and synthetic demo implementation.
 
-GitHub Actions checks the app and deploys only `lantern/web` to Pages. No private configuration or database is published. Built by [hirsu](https://hrushikbarani-hub.github.io/) from the Raspberry Pi home-lab idea.
+GitHub Actions checks the app and deploys only `lantern/web` to Pages. No private configuration or database is published. Built by [hirsu](https://hirsu-dev.github.io/) from the Raspberry Pi home-lab idea.
